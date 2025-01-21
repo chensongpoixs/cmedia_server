@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="util">
+      <UniqueIdentifier>{223fc449-3897-4de3-8cb5-ba82d86a434c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="time">
+      <UniqueIdentifier>{05927eed-1621-4538-a564-8625816c83b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="log">
+      <UniqueIdentifier>{5e680895-b2bf-4427-b302-8e515bf2a7b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{0ecdc317-4498-4c67-b39b-38595e365a63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="net">
+      <UniqueIdentifier>{941aef6c-e6b1-4524-9bab-4b37858e3a21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="system_info">
+      <UniqueIdentifier>{c42b50a0-412c-440b-bd50-1c8b788dbf47}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cmem_pool.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="ctime_const.h">
+      <Filter>time</Filter>
+    </ClInclude>
+    <ClInclude Include="ctime_api.h">
+      <Filter>time</Filter>
+    </ClInclude>
+    <ClInclude Include="ctime_elapse.h">
+      <Filter>time</Filter>
+    </ClInclude>
+    <ClInclude Include="clib_util.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="clog.h">
+      <Filter>log</Filter>
+    </ClInclude>
+    <ClInclude Include="casync_log.h">
+      <Filter>log</Filter>
+    </ClInclude>
+    <ClInclude Include="clog_define.h">
+      <Filter>log</Filter>
+    </ClInclude>
+    <ClInclude Include="cnoncopyable.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="clog_color.h">
+      <Filter>log</Filter>
+    </ClInclude>
+    <ClInclude Include="cnet_type.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="cdigit2str.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="cconfig.h">
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="cmsg_buffer.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="cnet_session.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="cnet_mgr.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="cnet_msg.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="cnet_msg_queue.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="cnet_msg_header.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="cnet_msg_reserve.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="cnet_define.h">
+      <Filter>net</Filter>
+    </ClInclude>
+    <ClInclude Include="ccmd_param.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="csingleton.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="sigar.h">
+      <Filter>system_info</Filter>
+    </ClInclude>
+    <ClInclude Include="sigar_fileinfo.h">
+      <Filter>system_info</Filter>
+    </ClInclude>
+    <ClInclude Include="sigar_format.h">
+      <Filter>system_info</Filter>
+    </ClInclude>
+    <ClInclude Include="sigar_getline.h">
+      <Filter>system_info</Filter>
+    </ClInclude>
+    <ClInclude Include="sigar_log.h">
+      <Filter>system_info</Filter>
+    </ClInclude>
+    <ClInclude Include="sigar_os.h">
+      <Filter>system_info</Filter>
+    </ClInclude>
+    <ClInclude Include="sigar_pdh.h">
+      <Filter>system_info</Filter>
+    </ClInclude>
+    <ClInclude Include="sigar_private.h">
+      <Filter>system_info</Filter>
+    </ClInclude>
+    <ClInclude Include="sigar_ptql.h">
+      <Filter>system_info</Filter>
+    </ClInclude>
+    <ClInclude Include="sigar_util.h">
+      <Filter>system_info</Filter>
+    </ClInclude>
+    <ClInclude Include="crc4.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="ccrypto.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="cregistry.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="cutil.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="crandom.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="cbase64.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="httplib.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="cmd5.h">
+      <Filter>util</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cmem_pool.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="ctime_api.cpp">
+      <Filter>time</Filter>
+    </ClCompile>
+    <ClCompile Include="clog.cpp">
+      <Filter>log</Filter>
+    </ClCompile>
+    <ClCompile Include="casync_log.cpp">
+      <Filter>log</Filter>
+    </ClCompile>
+    <ClCompile Include="clog_color.cpp">
+      <Filter>log</Filter>
+    </ClCompile>
+    <ClCompile Include="cnet_type.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="cdigit2str.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="cconfig.cpp">
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="cmsg_buffer.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="cnet_session.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="cnet_mgr.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="cnet_msg.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="cnet_msg_queue.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="cnet_msg_reserve.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="ccmd_param.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="peb.c">
+      <Filter>system_info</Filter>
+    </ClCompile>
+    <ClCompile Include="sigar.c">
+      <Filter>system_info</Filter>
+    </ClCompile>
+    <ClCompile Include="sigar_cache.c">
+      <Filter>system_info</Filter>
+    </ClCompile>
+    <ClCompile Include="sigar_fileinfo.c">
+      <Filter>system_info</Filter>
+    </ClCompile>
+    <ClCompile Include="sigar_format.c">
+      <Filter>system_info</Filter>
+    </ClCompile>
+    <ClCompile Include="sigar_getline.c">
+      <Filter>system_info</Filter>
+    </ClCompile>
+    <ClCompile Include="sigar_ptql.c">
+      <Filter>system_info</Filter>
+    </ClCompile>
+    <ClCompile Include="sigar_signal.c">
+      <Filter>system_info</Filter>
+    </ClCompile>
+    <ClCompile Include="sigar_util.c">
+      <Filter>system_info</Filter>
+    </ClCompile>
+    <ClCompile Include="win32_sigar.c">
+      <Filter>system_info</Filter>
+    </ClCompile>
+    <ClCompile Include="wmi.cpp">
+      <Filter>system_info</Filter>
+    </ClCompile>
+    <ClCompile Include="crc4.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="ccrypto.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="cregistry.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="cutil.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="crandom.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="cbase64.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
