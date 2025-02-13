@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cmedia_server", "cmedia_ser
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clib", "clib\clib.vcxproj", "{3120B5FD-03E9-4413-A512-CEF433F1EC2B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "media", "media\media.vcxproj", "{0BB8B5AB-16CF-48E5-9DB4-D4CA6C3B3DFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{3120B5FD-03E9-4413-A512-CEF433F1EC2B}.Release|x64.Build.0 = Release|x64
 		{3120B5FD-03E9-4413-A512-CEF433F1EC2B}.Release|x86.ActiveCfg = Release|Win32
 		{3120B5FD-03E9-4413-A512-CEF433F1EC2B}.Release|x86.Build.0 = Release|Win32
+		{0BB8B5AB-16CF-48E5-9DB4-D4CA6C3B3DFB}.Debug|x64.ActiveCfg = Debug|x64
+		{0BB8B5AB-16CF-48E5-9DB4-D4CA6C3B3DFB}.Debug|x64.Build.0 = Debug|x64
+		{0BB8B5AB-16CF-48E5-9DB4-D4CA6C3B3DFB}.Debug|x86.ActiveCfg = Debug|Win32
+		{0BB8B5AB-16CF-48E5-9DB4-D4CA6C3B3DFB}.Debug|x86.Build.0 = Debug|Win32
+		{0BB8B5AB-16CF-48E5-9DB4-D4CA6C3B3DFB}.Release|x64.ActiveCfg = Release|x64
+		{0BB8B5AB-16CF-48E5-9DB4-D4CA6C3B3DFB}.Release|x64.Build.0 = Release|x64
+		{0BB8B5AB-16CF-48E5-9DB4-D4CA6C3B3DFB}.Release|x86.ActiveCfg = Release|Win32
+		{0BB8B5AB-16CF-48E5-9DB4-D4CA6C3B3DFB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
