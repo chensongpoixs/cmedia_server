@@ -1,10 +1,10 @@
-/***********************************************************************************************
-    created:         2019-03-06
-    
-    author:            chensong
-                    
-    purpose:        ccrypto
-		输赢不重要，答案对你们有什么意义才重要。
+﻿/***********************************************************************************************
+		created: 		2025-01-24
+
+		author:			chensong
+
+		purpose:		cevent_loop
+	输赢不重要，答案对你们有什么意义才重要。
 
 	光阴者，百代之过客也，唯有奋力奔跑，方能生风起时，是时代造英雄，英雄存在于时代。或许世人道你轻狂，可你本就年少啊。 看护好，自己的理想和激情。
 
@@ -19,33 +19,61 @@
 我叫他本心猎手。他可能是和宇宙同在的级别 但是我并不害怕，我仔细回忆自己平淡的一生 寻找本心猎手的痕迹。
 沿着自己的回忆，一个个的场景忽闪而过，最后发现，我的本心，在我写代码的时候，会回来。
 安静，淡然，代码就是我的一切，写代码就是我本心回归的最好方式，我还没找到本心猎手，但我相信，顺着这个线索，我一定能顺藤摸瓜，把他揪出来。
-************************************************************************************************/
-#ifndef _C_CRYPTO_H_
-#define _C_CRYPTO_H_
+*********************************************************************/
 
-
-#include "crc4.h"
-
+#ifndef _C_EVENT_LOOP_H_
+#define _C_EVENT_LOOP_H_
+#include "cnet_type.h"
+#include <cstdio>
+#include <cstdlib>
+#include "cnoncopyable.h"
+#include "casync_log.h"
+#include <atomic>
+#include "cevent.h"
 namespace chen {
 
-	class ccrypto
+	class cevent_loop : private cnoncopyable
 	{
 	public:
-		ccrypto() {}
-		virtual ~ccrypto() {}
+		explicit cevent_loop()
+			: m_stoped(false) {}
+		virtual ~cevent_loop();
 
-		bool set_encrypt_key(const void* encrypt_data, int encrypt_len);
-		bool set_decrypt_key(const void* decrypt_data, int decrypt_len);
-		void encrypt(const void* data_in, void* data_out, int len_in);
-		void decrypt(const void* data_in, void* data_out, int len_in);
-    private:
-        ccrypto(const ccrypto&);
-        ccrypto& operator=(const ccrypto&);
+
+
+	public:
+		bool init();
+		void update();
+		void destroy();
+
+	public:
+
+		/**
+		* 增加事件
+		*  @param cevent:  事件   in 
+		*  @return 
+		**/
+		void add_event(const cevent * event);
+		/**
+		* 删除事件
+		*  @param cevent:  事件   in
+		*  @return
+		**/
+		void delete_event(const cevent*  event);
+
+
+		/**
+		* 停止
+		*  @return
+		**/
+		void stop();
+
 	private:
-		cRC4				m_encrypt_key;
-		cRC4				m_decrypt_key;
-	};
+		std::atomic<bool>		m_stoped;
+	};//namespace chen
 
-} // namespace chen
 
-#endif //_C_CRYPTO_H_
+}//namespace chen
+
+
+#endif // 

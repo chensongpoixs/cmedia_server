@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="rtp">
+      <UniqueIdentifier>{4ad592a8-ef4a-47d3-845d-7e8b5431dd7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="flv">
+      <UniqueIdentifier>{6408a6ae-11a1-4524-8bb5-228d3ac2e310}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cflv_context.cpp">
+      <Filter>flv</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cflv_context.h">
+      <Filter>flv</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -19,6 +19,9 @@
     <Filter Include="system_info">
       <UniqueIdentifier>{c42b50a0-412c-440b-bd50-1c8b788dbf47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="event_loop">
+      <UniqueIdentifier>{647577e1-77a6-42ae-8d61-b0d88b81953a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cmem_pool.h">
@@ -144,6 +147,12 @@
     <ClInclude Include="cmd5.h">
       <Filter>util</Filter>
     </ClInclude>
+    <ClInclude Include="cevent_loop.h">
+      <Filter>event_loop</Filter>
+    </ClInclude>
+    <ClInclude Include="cevent.h">
+      <Filter>event_loop</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cmem_pool.cpp">
@@ -241,6 +250,12 @@
     </ClCompile>
     <ClCompile Include="cbase64.cpp">
       <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="cevent_loop.cpp">
+      <Filter>event_loop</Filter>
+    </ClCompile>
+    <ClCompile Include="cevent.cpp">
+      <Filter>event_loop</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
