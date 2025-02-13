@@ -28,3 +28,6 @@ TestResults.xml
 /cmedia_server/lib
 /cmedia_server/bin/x64/Debug
 /cmedia_server/media/media.vcxproj.user
+/bin
+/lib
+/vsout
