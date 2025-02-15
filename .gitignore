@@ -33,3 +33,4 @@ TestResults.xml
 /vsout
 /libepoll/libepoll.vcxproj.user
 /.vs
+/common/common.vcxproj.user
