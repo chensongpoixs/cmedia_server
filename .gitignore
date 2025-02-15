@@ -31,3 +31,5 @@ TestResults.xml
 /bin
 /lib
 /vsout
+/libepoll/libepoll.vcxproj.user
+/.vs
