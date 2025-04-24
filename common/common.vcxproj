@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{0BB8B5AB-16CF-48E5-9DB4-D4CA6C3B3DFB}</ProjectGuid>
-    <RootNamespace>media</RootNamespace>
+    <ProjectGuid>{FDAB8658-F73D-4644-98E3-AAD369A11152}</ProjectGuid>
+    <RootNamespace>common</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -75,8 +75,8 @@
     <IncludePath>..\common;..\media;..\libepoll;..\clib;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IntDir>$(ProjectDir)..\vsout\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <OutDir>..\lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)..\vsout\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IncludePath>..\common;..\media;..\libepoll;..\clib;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,10 +132,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cflv_context.cpp" />
+    <ClCompile Include="ctiming_wheel.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cflv_context.h" />
+    <ClInclude Include="ctiming_wheel.h" />
+    <ClInclude Include="ctiming_wheel_define.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

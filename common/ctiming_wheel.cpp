@@ -1,9 +1,9 @@
-/***********************************************************************************************
-created: 		2018-10-02
+﻿/***********************************************************************************************
+created: 		2019-12-27
 
 author:			chensong
 
-purpose:		async_log
+purpose:		timing wheel
 	输赢不重要，答案对你们有什么意义才重要。
 
 	光阴者，百代之过客也，唯有奋力奔跑，方能生风起时，是时代造英雄，英雄存在于时代。或许世人道你轻狂，可你本就年少啊。 看护好，自己的理想和激情。
@@ -20,78 +20,63 @@ purpose:		async_log
 沿着自己的回忆，一个个的场景忽闪而过，最后发现，我的本心，在我写代码的时候，会回来。
 安静，淡然，代码就是我的一切，写代码就是我本心回归的最好方式，我还没找到本心猎手，但我相信，顺着这个线索，我一定能顺藤摸瓜，把他揪出来。
 *********************************************************************/
-#ifndef _C_ASYNC_LOG_H
-#define _C_ASYNC_LOG_H
-#include "clog_define.h"
-#include <string>
-#include <iostream>
-//#include <cstring>
-#include <iostream>
-#include <fstream>
-#include <iostream>
-#include <fstream>
-#include <memory>
-#include <ctime>
-#include <cstdio>
-#include <cstdlib>
-#include "cnoncopyable.h"
-#include "clog_color.h"
-#include <thread>
-#include <list>
-#include "cnet_type.h"
-#include <mutex>
-#include <atomic>
-#include <condition_variable>
-namespace chen
-{
-	struct clog_item;
 
 
-	class casync_log : private cnoncopyable
+#include "ctiming_wheel.h"
+
+
+namespace chen {
+	/*ctiming_wheel::ctiming_wheel()
 	{
-	private:
-		typedef std::condition_variable					ccond;
-		typedef std::atomic_bool						catomic_bool;
-	public:
-		explicit casync_log();
-		~casync_log();
-		bool init(const std::string& path, const std::string& name, const std::string& ext
-			, bool show_screen);
-		void destroy();
-	public:
-
-		void append_fix(ELogLevelType level, const void* str, unsigned int len);
-		void append_var(ELogLevelType level, const char* format, va_list ap);
-
-		void set_level(ELogLevelType level);
-		ELogLevelType get_level()  const {return m_level_log;}
-	private:
-		bool			_init_log();
-	private:
-		//�����߳�
-		void			_work_pthread();
-		clog_item*		_get_new_buf();
-		void			_handler_log_item(const clog_item* log_item_ptr);
-		void			_handler_check_log_file();
-	private:
-		char *					m_log_buf;
-		bool					m_show_screen;
-		bool					m_show_log;
-		ELogLevelType					m_level_log;
-		std::string				m_file_name;
-		std::ofstream			m_fd;
-		clog_color	*			m_color_ptr;
-		catomic_bool			m_stoped;
-		std::thread				m_thread;
-		std::mutex				m_lock;
-		ccond					m_condition;    /*�Ƿ���������Ҫ����*/
-		std::list<clog_item*>	m_log_item;
-		int32_t					m_date_time;
-		std::string				m_path;
-		std::string				m_name;
-		std::string				m_ext;
-	};
+	}*/
+	ctiming_wheel::~ctiming_wheel()
+	{
+	}
+	bool ctiming_wheel::init()
+	{
+		m_wheels[ETiming_Second].resize(60);
+		m_wheels[ETiming_Minute].resize(60);
+		m_wheels[ETiming_Hour].resize(24);
+		m_wheels[ETiming_Day].resize(30);
+		return true;
+	}
+	void ctiming_wheel::update(uint32 TimeData)
+	{
+	}
+	void ctiming_wheel::destroy()
+	{
+	}
+	void ctiming_wheel::insert_entry(uint32_t delay, WHEEL_ENTRY entryPtr)
+	{
+	}
+	void ctiming_wheel::on_timer(int64_t now)
+	{
+	}
+	void ctiming_wheel::pop_up(WHEEL & bq)
+	{
+	}
+	void ctiming_wheel::run_after(double delay, const std::function<void()>& cb)
+	{
+	}
+	void ctiming_wheel::run_after(double delay, std::function<void()>&& cb)
+	{
+	}
+	void ctiming_wheel::run_every(double interval, const std::function<void()>& cb)
+	{
+	}
+	void ctiming_wheel::run_every(double interval, std::function<void()>&& cb)
+	{
+	}
+	void ctiming_wheel::insert_second_entry(uint32_t delay, WHEEL_ENTRY entryPtr)
+	{
+	}
+	void ctiming_wheel::insert_minute_entry(uint32_t delay, WHEEL_ENTRY entryPtr)
+	{
+	}
+	void ctiming_wheel::insert_hour_entry(uint32_t delay, WHEEL_ENTRY entryPtr)
+	{
+	}
+	void ctiming_wheel::insert_day_entry(uint32_t delay, WHEEL_ENTRY entryPtr)
+	{
+	}
 }
-
-
-#endif // !#define _C_ASYNC_LOG_H

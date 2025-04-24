@@ -1,9 +1,9 @@
-/***********************************************************************************************
-created: 		2018-10-02
+﻿/***********************************************************************************************
+created: 		2019-12-27
 
 author:			chensong
 
-purpose:		async_log
+purpose:		timing wheel 
 	输赢不重要，答案对你们有什么意义才重要。
 
 	光阴者，百代之过客也，唯有奋力奔跑，方能生风起时，是时代造英雄，英雄存在于时代。或许世人道你轻狂，可你本就年少啊。 看护好，自己的理想和激情。
@@ -20,78 +20,32 @@ purpose:		async_log
 沿着自己的回忆，一个个的场景忽闪而过，最后发现，我的本心，在我写代码的时候，会回来。
 安静，淡然，代码就是我的一切，写代码就是我本心回归的最好方式，我还没找到本心猎手，但我相信，顺着这个线索，我一定能顺藤摸瓜，把他揪出来。
 *********************************************************************/
-#ifndef _C_ASYNC_LOG_H
-#define _C_ASYNC_LOG_H
-#include "clog_define.h"
-#include <string>
-#include <iostream>
-//#include <cstring>
-#include <iostream>
-#include <fstream>
-#include <iostream>
-#include <fstream>
-#include <memory>
-#include <ctime>
-#include <cstdio>
-#include <cstdlib>
+#ifndef _C_TIMING_WHEEL_DEFINE_H_
+#define _C_TIMING_WHEEL_DEFINE_H_
 #include "cnoncopyable.h"
-#include "clog_color.h"
-#include <thread>
-#include <list>
 #include "cnet_type.h"
-#include <mutex>
-#include <atomic>
-#include <condition_variable>
-namespace chen
-{
-	struct clog_item;
+#include <unordered_set>
+#include <vector>
+#include <deque>
+#include <functional>
+
+namespace chen {
+	
+	
+	static const uint32    TIMING_MINUTE = 60;
+	static const uint32	   TIMING_HOUR = TIMING_MINUTE * TIMING_MINUTE;
+	static const uint32    TIMING_DAY = TIMING_HOUR * 24;
 
 
-	class casync_log : private cnoncopyable
+	enum ETiming_Type
 	{
-	private:
-		typedef std::condition_variable					ccond;
-		typedef std::atomic_bool						catomic_bool;
-	public:
-		explicit casync_log();
-		~casync_log();
-		bool init(const std::string& path, const std::string& name, const std::string& ext
-			, bool show_screen);
-		void destroy();
-	public:
-
-		void append_fix(ELogLevelType level, const void* str, unsigned int len);
-		void append_var(ELogLevelType level, const char* format, va_list ap);
-
-		void set_level(ELogLevelType level);
-		ELogLevelType get_level()  const {return m_level_log;}
-	private:
-		bool			_init_log();
-	private:
-		//�����߳�
-		void			_work_pthread();
-		clog_item*		_get_new_buf();
-		void			_handler_log_item(const clog_item* log_item_ptr);
-		void			_handler_check_log_file();
-	private:
-		char *					m_log_buf;
-		bool					m_show_screen;
-		bool					m_show_log;
-		ELogLevelType					m_level_log;
-		std::string				m_file_name;
-		std::ofstream			m_fd;
-		clog_color	*			m_color_ptr;
-		catomic_bool			m_stoped;
-		std::thread				m_thread;
-		std::mutex				m_lock;
-		ccond					m_condition;    /*�Ƿ���������Ҫ����*/
-		std::list<clog_item*>	m_log_item;
-		int32_t					m_date_time;
-		std::string				m_path;
-		std::string				m_name;
-		std::string				m_ext;
+		ETiming_Second = 0,
+		ETiming_Minute = 1,
+		ETiming_Hour = 2,
+		ETiming_Day = 3,
 	};
+
+
 }
 
-
-#endif // !#define _C_ASYNC_LOG_H
+#endif // _C_TIMING_WHEEL_DEFINE_H_
