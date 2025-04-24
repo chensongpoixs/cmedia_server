@@ -34,3 +34,4 @@ TestResults.xml
 /libepoll/libepoll.vcxproj.user
 /.vs
 /common/common.vcxproj.user
+/.github
