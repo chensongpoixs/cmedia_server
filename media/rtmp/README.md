@@ -276,3 +276,120 @@ rtmp协议控制消息是指设置Chunk Stream参数的消息。协议控制消�
 |Streams Recorded (=4)|	服务器发送这一事件来通知客户端当前流是一个录制流。事件数据为4字节，代表了录制流的流 ID。|
 |PingRequest (=6)	|服务器端发送这一事件用于测试客户端是否可达。事件数据是为一个4字节的时间戳，代表了服务器端发送这一命令时的服务器本地时间。客户端在接收到这一消息后会立即发送 PingResponse 回复。|
 |PingResponse（=7）	|客户端发送这一事件用于回复服务器的PingRequest。事件数据是为一个4字节的时间戳，该时间戳是从接收到的PingRequest的事件数据中获取的。|
+
+
+## 三、 AMF0和AMF3介绍
+
+AMF 是随Flash Player 6 一起引入的，该版本称为 AMF0。它一直保持不变，直到 Flash Player 9 和ActionScript 3.0发布为止，当时新的数据类型和语言功能促使更新，称为 AMF3。
+
+在Rtmp中，Message Type类型为0x14的包带的是AMF0序列化数据，而Message Type类型为0x11的包，带的是AMF3的数据。AMF3的Object类型中，body也是用AMF0来序列化，只是第一个字节是0x00，不起作用。因此，AMF3的Object，去掉第一个字节，就可以按AMF0的方式去解析。所以，这里就详细介绍AMF0的类型。
+
+AMF的存储结构：一个字节的类型+N个字节的内容。不同的类型，内容不一样。AMF使用大端字节序存储数据。
+
+AMF0类型：
+
+|类型|	类型值	|说明|
+|:---|:---:|:---|
+|Number|	0×00|	数字，编码为 IEEE 64 位双精度浮点数|
+|Boolean|	0×01|	布尔值，编码为单字节值 0x00 或 0x01|
+|String|	0×02|	字符串，16 位整数字符串长度，UTF-8 字符串|
+|Object|	0×03|	对象，键/值对集|
+|Null|	0×05|	空值|
+|MixedArray|	0×08	|ECMA 数组，32位的数组长度|
+|EndOfObject	|0×09	|对象结束，前面是一个空的 16 位字符串长度（0x00 00）|
+|Array	|0×0a	|严格数组，32位的数组个数|
+|Date	|0×0b	|日期，编码为 IEEE 64 位双精度浮点数，具有 16 位整数时区偏移量|
+|LongString	|0×0c	|长字符串，32 位整数字符串长度|
+'
+
+### 3.1.1 Number类型
+
+Number类型是双精度的浮点数。
+
+Number类型 = 0x00 + DOUBLE
+
+其中DOUBLE是大端字节序存储的编码为 IEEE 64 位双精度浮点数。
+
+### 3.1.2.Boolean类型
+
+Boolean类型是布尔值true或者false。
+
+Boolean类型 = 0x01 + 一个非负字节
+
+其中非负字节的值0表示false，非0表示true
+
+### 3.1.3.String类型
+
+String类型是使用UTF-8编码的字符串。
+
+String类型 = 0x02 + UTF-8
+
+其中UTF-8由16位的长度+字符串内容组成。字符串的内容长度由前面的16位长度确定，最长65536。
+
+### 3.1.4.Object类型
+
+Object类型用来编码匿名对象。
+
+Object类型 = 0x03 + Object-Property
+
+Object-Property 由键值对组成：键名由16位的长度+字符串组成，键值是Object类型或者其他类型。
+
+Object总是以0x000009结束。
+
+### 3.1.5.Null类型
+
+Null类型是空值。
+
+Null类型=0x05
+
+Null类型没有内容。
+
+### 3.1.6.MixedArray类型
+
+MixedArray类型跟Object一样，由键值对组成。
+
+MixedArray类型=0x08 + count*Object-Property
+
+count是4字节的整数，表示键值对的数量。
+
+Object-Property 也是由键值对组成。
+
+MixedArray也是以0x000009结束。
+
+### 3.1.7.EndOfObject类型
+
+EndOfObject类型表示Object结束。
+
+EndOfObject类型=0x09
+
+EndOfObject类型后面没有内容，前面有两个字节0x0000，总共3个字节0x000009指示Object结束。
+
+### 3.1.8.Array类型
+
+Array类型是指严格数组。
+
+Array类型=0×0a + array-cout*value-type
+
+array-cout是4字节数组长度
+
+value-type指类型值
+
+### 3.1.9.Date类型
+
+Date，日期。
+
+Date类型表示从1970-01-01T00:00:00到现在的毫秒数
+
+Date类型=0x0b + DOUBLE + time-zone
+
+DOUBLE为大端字节序存储的编码为 IEEE 64 位双精度浮点数
+
+time-zone为16位的有符号整数
+
+### 3.1.10.LongString类型
+
+LongString类型是使用UTF-8编码的字符串。
+
+LongString类型 = 0x0c + UTF-8
+
+其中UTF-8由32位的长度+字符串内容组成。字符串的内容长度由前面的32位长度确定。
